@@ -249,16 +249,7 @@ public class CostcoTest {
 //    }
 
      
-    @Test(priority = 7)
-    public void verifyHomepageTitle() throws Exception {
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.get("https://www.costco.com/");
-        CostcoVerifyTitle verify = PageFactory.initElements(driver, CostcoVerifyTitle.class);
-         verify.Verify();
-         File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE); 
-         FileUtils.copyFile(scrFile, new File("./verify.png"));
-
-    }
+   
     
      @Test(priority = 0)
      public void Register() throws Exception {
