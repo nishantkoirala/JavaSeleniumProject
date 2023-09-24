@@ -1,0 +1,11 @@
+pageobject\com\CostcoRegisterTest.class
+pageobject\com\CostcoSelectCountryTest.class
+pageobject\com\CostcoCheckoutTest.class
+pageobject\com\CostcoLoginTest.class
+test\com\CostcoTest.class
+pageobject\com\CostcoHoverTest.class
+test\com\CostcoFormLogin.class
+pageobject\com\CostcoVerifyTitle.class
+pageobject\com\CostcoAddCartTest.class
+pageobject\com\CostcoSearchTest.class
+test\com\CostcoFormTest.class
