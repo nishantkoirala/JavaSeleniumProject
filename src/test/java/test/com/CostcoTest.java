@@ -71,14 +71,12 @@ public class CostcoTest {
     @BeforeTest
     public void starting() {
         System.setProperty("webdriver.chrome.driver", "c:\\data\\chromedriver.exe");
-        ChromeOptions op = new ChromeOptions();
-            op.setHeadless(true);
-            op.addArguments("window-size=1920,1080");
-            driver = new ChromeDriver(op);
-//        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-
-    }
+        ChromeOptions options = new ChromeOptions(); 
+        options.addArguments("--headless"); 
+        options.addArguments("--disable-gpu"); 
+        options.addArguments("--window-size=1400,800");
+        WebDriver driver = new ChromeDriver(options); 
+         }
 
     @AfterTest
     public void ending() {
@@ -249,9 +247,16 @@ public class CostcoTest {
 //    }
 
      
-   
+   @Test(priority = 0)
+    public void verifyHomepageTitle() throws Exception {
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.get("https://www.costco.com/");
+        CostcoVerifyTitle verify = PageFactory.initElements(driver, CostcoVerifyTitle.class);
+         verify.Verify();
+         File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE); 
+         FileUtils.copyFile(scrFile, new File("./verify.png"));
     
-     @Test(priority = 0)
+     @Test(priority = 1)
      public void Register() throws Exception {
          driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
          CostcoRegisterTest register = PageFactory.initElements(driver, CostcoRegisterTest.class);
@@ -261,7 +266,7 @@ public class CostcoTest {
          
      }
      
-     @Test(priority = 1)
+     @Test(priority = 2)
      public void Login() throws Exception {
          driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
          CostcoLoginTest login = PageFactory.initElements(driver, CostcoLoginTest.class);
@@ -271,7 +276,7 @@ public class CostcoTest {
          
      }
      
-     @Test(priority = 2)
+     @Test(priority = 3)
      public void Select_Dropdown_Country() throws Exception {
          
          CostcoSelectCountryTest select = PageFactory.initElements(driver, CostcoSelectCountryTest.class);
@@ -282,7 +287,7 @@ public class CostcoTest {
          
      }
      
-     @Test(priority = 3)
+     @Test(priority = 4)
      public void Hover_Items() throws Exception {
           driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
           CostcoHoverTest hover = PageFactory.initElements(driver, CostcoHoverTest.class);
@@ -295,7 +300,7 @@ public class CostcoTest {
          
      }
      
-     @Test(priority = 4)
+     @Test(priority = 5)
      public void Search_Items() throws Exception {
          driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
          CostcoSearchTest search = PageFactory.initElements(driver, CostcoSearchTest.class);
@@ -306,7 +311,7 @@ public class CostcoTest {
          
      }
      
-     @Test(priority = 5)
+     @Test(priority = 6)
      public void Add_Cart_Items() throws Exception {
          driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
          CostcoAddCartTest addcart = PageFactory.initElements(driver, CostcoAddCartTest.class);
@@ -317,7 +322,7 @@ public class CostcoTest {
          
      }
      
-     @Test(priority = 6)
+     @Test(priority = 7)
      public void Checkout_Items() throws Exception {
          driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
          CostcoCheckoutTest checkout = PageFactory.initElements(driver, CostcoCheckoutTest.class);
