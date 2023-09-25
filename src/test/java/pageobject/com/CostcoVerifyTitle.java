@@ -23,9 +23,9 @@ public class CostcoVerifyTitle {
             throws Exception {
         try {
             
-            String expectedTitle = "Welcome to Costco Wholesale";
+            
             driver.getTitle();
-            Assert.assertEquals(driver.getTitle(), expectedTitle);
+            Assert.assertEquals(driver.getTitle(), Welcome to Costco Wholesale);
 
         } catch (Exception ex) {
             ex.printStackTrace();
