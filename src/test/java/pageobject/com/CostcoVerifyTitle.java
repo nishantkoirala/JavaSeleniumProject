@@ -24,8 +24,10 @@ public class CostcoVerifyTitle {
         try {
             
             
-            driver.getTitle();
-            Assert.assertEquals(driver.getTitle(), Welcome to Costco Wholesale);
+             driver.get("https://www.costco.com/");
+            String expectedTitle = "Welcome to Costco Wholesale";
+            String actualTitle = driver.getTitle();
+            Assert.assertEquals(actualTitle, expectedTitle);
 
         } catch (Exception ex) {
             ex.printStackTrace();
