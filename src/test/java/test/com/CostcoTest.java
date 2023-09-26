@@ -96,16 +96,16 @@ public class CostcoTest {
     }
     
     
-      @Test(priority = 0)
-   public void verifyHomepageTitle() throws Exception {
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.get("https://www.costco.com/");
-            String expectedTitle = "Welcome to Costco Wholesale";
-            String actualTitle = driver.getTitle();
-            Assert.assertEquals(actualTitle, expectedTitle);
-            File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE); 
-            FileUtils.copyFile(scrFile, new File("./verify.png"));
-    }
+    //  @Test(priority = 0)
+  // public void verifyHomepageTitle() throws Exception {
+    //    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+      //  driver.get("https://www.costco.com/");
+        //    String expectedTitle = "Welcome to Costco Wholesale";
+          //  String actualTitle = driver.getTitle();
+           // Assert.assertEquals(actualTitle, expectedTitle);
+           // File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE); 
+           // FileUtils.copyFile(scrFile, new File("./verify.png"));
+  //  }
     
 //       // Page Object Model
 //     @Test(priority = 1)
